@@ -19,27 +19,21 @@ const student2: Istudent = {
     age: 2,
     location:"New York"
 }
-const headers = ["firstName", "location"];
+const headers: string[] = ["firstName", "location"];
 
 const studentsList: Array<Istudent> = [student1, student2];
-
 
 function generateTableHead(table: HTMLTableElement,headers: string[]): void {
     const thead: HTMLTableSectionElement  = table.createTHead();
     const row: HTMLTableRowElement   = thead.insertRow();
 
     headers.forEach((headerTitle, index) =>{
-        //const text: Text = document.createTextNode(headerTitle);
-        //th.appendChild(text);
-        const cell = row.insertCell(index);
+        const cell: HTMLTableDataCellElement = row.insertCell(index);
         const text: Text = document.createTextNode(headerTitle);
         cell.appendChild(text)
-
         thead.appendChild(row)
     })
   }
-
-
 
 function generateTable(table: HTMLTableElement, data: Istudent[]): void{
     const tbody: HTMLTableSectionElement = document.createElement("tbody");
@@ -55,13 +49,11 @@ function generateTable(table: HTMLTableElement, data: Istudent[]): void{
     });
 }
 
-
 const body: HTMLBodyElement = document.getElementsByTagName("body")[0];
 const table: HTMLTableElement = document.createElement("table");
 body.appendChild(table)
 
 generateTableHead(table, headers);
-
 generateTable(table, studentsList);
 
 
