@@ -1,5 +1,5 @@
 
-interface myInterface {
+interface Istudent {
     firstName: string;
     lastName: string;
     age: number;
@@ -7,15 +7,14 @@ interface myInterface {
 
 }
 
-const studentList: myInterface[] = [];
 
-const student1: myInterface = {
+const student1: Istudent = {
     firstName: "st1",
     lastName: "st11",
     age: 1,
     location:"std"
 }
-const student2: myInterface = {
+const student2: Istudent = {
     firstName: "st2",
     lastName: "st12",
     age: 2,
@@ -23,16 +22,16 @@ const student2: myInterface = {
 }
 const headers = ["firstName", "location"];
 
-const studentsList: Array<myInterface> = [student1, student2];
+const studentsList: Array<Istudent> = [student1, student2];
 
 
 function generateTableHead(table: HTMLTableElement,headers: string[]): void {
-    let thead = table.createTHead();
-    let row = thead.insertRow();
+    const thead = table.createTHead();
+    const row = thead.insertRow();
 
     headers.forEach((headerTitle) =>{
-        let th = document.createElement("th");
-        let text = document.createTextNode(headerTitle);
+        const th = document.createElement("th");
+        const text = document.createTextNode(headerTitle);
         th.appendChild(text);
         row.appendChild(th);
     })
@@ -40,8 +39,8 @@ function generateTableHead(table: HTMLTableElement,headers: string[]): void {
 
 
 
-function generateTable(table: HTMLTableElement, data: myInterface[]): void{
-    data.forEach((element: myInterface)=> {
+function generateTable(table: HTMLTableElement, data: Istudent[]): void{
+    data.forEach((element: Istudent)=> {
         let row = table.insertRow();
         let cell1 = row.insertCell();
         let text1 = document.createTextNode(element.firstName);
@@ -51,8 +50,9 @@ function generateTable(table: HTMLTableElement, data: myInterface[]): void{
         cell2.appendChild(text2);
     });
 }
-const body = document.getElementsByTagName("body")[0];
 
+
+const body = document.getElementsByTagName("body")[0];
 const table = document.createElement("table");
 body.appendChild(table)
 
