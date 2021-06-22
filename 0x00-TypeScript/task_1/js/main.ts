@@ -1,10 +1,10 @@
-interface Teacher {
+interface Teacher{
     readonly firstName: string;
     readonly lastName: string;
-    fullTimeEmployee:string;
+    fullTimeEmployee:boolean;
     yearsOfExperience?: number;
     location: string;
-    [propName: string]: any;
+    [xxxxxxxxxxxxxxxxxxx: string]: any;
 }
 
 
