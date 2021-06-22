@@ -16,3 +16,4 @@ const printTeacher = (firstName: string, lastName:string):string => `${firstName
 interface printTeacherFunction{
     (firstName: string, lastName:string):string;
 }
+
