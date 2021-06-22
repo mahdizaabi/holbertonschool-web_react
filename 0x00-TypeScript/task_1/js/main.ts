@@ -6,7 +6,3 @@ interface Teacher{
     location: string;
     [xxxxxxxxxxxxxxxxxxx: string]: any;
 }
-
-
-
-
