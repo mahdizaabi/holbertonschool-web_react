@@ -41,12 +41,12 @@ function generateTableHead(table: HTMLTableElement,headers: string[]): void {
 
 function generateTable(table: HTMLTableElement, data: Istudent[]): void{
     data.forEach((element: Istudent)=> {
-        let row = table.insertRow();
-        let cell1 = row.insertCell();
-        let text1 = document.createTextNode(element.firstName);
+        const row = table.insertRow();
+        const cell1 = row.insertCell();
+        const text1 = document.createTextNode(element.firstName);
         cell1.appendChild(text1)
-        let cell2 = row.insertCell();
-        let text2 = document.createTextNode(element.location);
+        const cell2 = row.insertCell();
+        const text2 = document.createTextNode(element.location);
         cell2.appendChild(text2);
     });
 }
