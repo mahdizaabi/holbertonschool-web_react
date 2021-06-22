@@ -26,11 +26,23 @@ const studentsList: Array<myInterface> = [student1, student2];
 const body = document.getElementsByTagName("body")[0];
 
 const tableComponent = document.createElement("table");
-tableComponent.innerHTML  += `<tr>
+
+tableComponent.innerHTML  += `
+<thead>
+<tr>
 <th>firstName</th>
 <th>location</th>
-</tr>`
+</tr>
+</thead>`
+
+
+
 body.appendChild(tableComponent);
+const tbody = document.createElement("tbody");
+
+tableComponent.appendChild(tbody);
+
+
 
 const studentComponent = (student: myInterface):string => `<tr>
 <td>${student.firstName}</td>
@@ -38,7 +50,7 @@ const studentComponent = (student: myInterface):string => `<tr>
 </tr>`
 
 studentsList.forEach((student: myInterface)=>{
-    tableComponent.innerHTML += studentComponent(student);
+    tbody.innerHTML += studentComponent(student);
 })
 
 
