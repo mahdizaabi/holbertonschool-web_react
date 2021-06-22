@@ -28,15 +28,13 @@ const body = document.getElementsByTagName("body")[0];
 
 const tableComponent = document.createElement("table");
 tableComponent.innerHTML  += `<tr>
-<th>Firstname</th>
-<th>Lastname</th>
-<th>Location</th>
+<th>firstName</th>
+<th>location</th>
 </tr>`
 body.appendChild(tableComponent);
 
 const studentComponent = (student: myInterface) => `<tr>
 <td>${student.firstName}</td>
-<td>${student.lastName}</td>
 <td>${student.location}</td>
 </tr>`
 
