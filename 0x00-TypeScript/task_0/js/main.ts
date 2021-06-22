@@ -28,12 +28,13 @@ function generateTableHead(table: HTMLTableElement,headers: string[]): void {
     const thead: HTMLTableSectionElement  = table.createTHead();
     const row: HTMLTableRowElement   = thead.insertRow();
 
-    headers.forEach((headerTitle) =>{
-        const th: HTMLTableHeaderCellElement  = document.createElement("th");
-        th.innerText = headerTitle;
+    headers.forEach((headerTitle, index) =>{
         //const text: Text = document.createTextNode(headerTitle);
         //th.appendChild(text);
-        row.appendChild(th);
+        const cell = row.insertCell(index);
+        const text: Text = document.createTextNode(headerTitle);
+        cell.appendChild(text)
+
         thead.appendChild(row)
     })
   }
@@ -45,31 +46,22 @@ function generateTable(table: HTMLTableElement, data: Istudent[]): void{
     table.appendChild(tbody);
     data.forEach((element: Istudent)=> {
         const row: HTMLTableRowElement = tbody.insertRow();
-        const cell1: HTMLTableDataCellElement = row.insertCell();
+        const cell1: HTMLTableDataCellElement = row.insertCell(0);
         const text1: Text = document.createTextNode(element.firstName);
         cell1.appendChild(text1)
-        const cell2: HTMLTableDataCellElement = row.insertCell();
+        const cell2: HTMLTableDataCellElement = row.insertCell(1);
         const text2: Text = document.createTextNode(element.location);
         cell2.appendChild(text2);
     });
 }
 
 
-
 const body: HTMLBodyElement = document.getElementsByTagName("body")[0];
 const table: HTMLTableElement = document.createElement("table");
 body.appendChild(table)
 
-/*generateTableHead(table, headers);*/
-const thead: HTMLTableSectionElement = document.createElement("thead");
-const rowHead: HTMLTableRowElement = thead.insertRow(0);
-const cell1Head: HTMLTableCellElement = rowHead.insertCell(0);
-const cell2Head: HTMLTableCellElement = rowHead.insertCell(1);
+generateTableHead(table, headers);
 
-cell1Head.innerHTML = "firstName";
-cell2Head.innerHTML = "location";
-
-table.append(thead);
 generateTable(table, studentsList);
 
 
