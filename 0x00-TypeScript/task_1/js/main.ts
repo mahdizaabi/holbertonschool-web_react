@@ -1,4 +1,4 @@
-interface Iteacher {
+interface Teacher {
     readonly firstName: string;
     readonly lastName: string;
     fullTimeEmployee:string;
@@ -6,5 +6,7 @@ interface Iteacher {
     location: string;
     [propName: string]: any;
 }
+
+
 
 
