@@ -37,7 +37,7 @@ const studentComponent = (student: myInterface):string => `<tr>
 <td>${student.location}</td>
 </tr>`
 
-studentList.forEach((student: myInterface)=>{
+studentsList.forEach((student: myInterface)=>{
     tableComponent.innerHTML += studentComponent(student);
 })
 
