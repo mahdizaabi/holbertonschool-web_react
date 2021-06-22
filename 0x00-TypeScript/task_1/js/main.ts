@@ -4,5 +4,5 @@ interface Teacher {
     fullTimeEmployee: boolean;
     yearsOfExperience?: number;
     location: string;
-    [propName: string]: any;
+    [xXx: string]: any;
 }
