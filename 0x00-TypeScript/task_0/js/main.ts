@@ -34,14 +34,17 @@ function generateTableHead(table: HTMLTableElement,headers: string[]): void {
         const text = document.createTextNode(headerTitle);
         th.appendChild(text);
         row.appendChild(th);
+        thead.appendChild(row)
     })
   }
 
 
 
 function generateTable(table: HTMLTableElement, data: Istudent[]): void{
+    const tbody: HTMLTableSectionElement = document.createElement("tbody");
+    table.appendChild(tbody);
     data.forEach((element: Istudent)=> {
-        const row = table.insertRow();
+        const row = tbody.insertRow();
         const cell1 = row.insertCell();
         const text1 = document.createTextNode(element.firstName);
         cell1.appendChild(text1)
@@ -57,6 +60,7 @@ const table = document.createElement("table");
 body.appendChild(table)
 
 generateTableHead(table, headers);
+
 generateTable(table, studentsList);
 
 
