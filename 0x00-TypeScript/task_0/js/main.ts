@@ -21,8 +21,7 @@ const student2: myInterface = {
     location:"std"
 }
 
-studentList.push(student1);
-studentList.push(student2);
+const studentsList: Array<myInterface> = [student1, student2];
 
 const body = document.getElementsByTagName("body")[0];
 
