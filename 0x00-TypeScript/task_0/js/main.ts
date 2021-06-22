@@ -33,12 +33,12 @@ tableComponent.innerHTML  += `<tr>
 </tr>`
 body.appendChild(tableComponent);
 
-const studentComponent = (student: myInterface) => `<tr>
+const studentComponent = (student: myInterface):string => `<tr>
 <td>${student.firstName}</td>
 <td>${student.location}</td>
 </tr>`
 
-studentList.forEach((student)=>{
+studentList.forEach((student: myInterface)=>{
     tableComponent.innerHTML += studentComponent(student);
 })
 
