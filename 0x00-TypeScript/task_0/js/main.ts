@@ -7,13 +7,13 @@ interface Student {
 
 }
 
-const student1: Istudent = {
+const student1: Student = {
     firstName: "Ptarick",
     lastName: "Jean luca",
     age: 1,
     location:"Paris sur mer"
 }
-const student2: Istudent = {
+const student2: Student = {
     firstName: "Lisa",
     lastName: "Sandrino",
     age: 2,
@@ -21,7 +21,7 @@ const student2: Istudent = {
 }
 const headers: string[] = ["firstName", "location"];
 
-const studentsList: Array<Istudent> = [student1, student2];
+const studentsList: Array<Student> = [student1, student2];
 
 function generateTableHead(table: HTMLTableElement,headers: string[]): void {
     const thead: HTMLTableSectionElement  = table.createTHead();
@@ -35,10 +35,10 @@ function generateTableHead(table: HTMLTableElement,headers: string[]): void {
     })
   }
 
-function generateTable(table: HTMLTableElement, data: Istudent[]): void{
+function generateTable(table: HTMLTableElement, data: Student[]): void{
     const tbody: HTMLTableSectionElement = document.createElement("tbody");
     table.appendChild(tbody);
-    data.forEach((element: Istudent)=> {
+    data.forEach((element: Student)=> {
         const row: HTMLTableRowElement = tbody.insertRow();
         const cell1: HTMLTableDataCellElement = row.insertCell(0);
         const text1: Text = document.createTextNode(element.firstName);
