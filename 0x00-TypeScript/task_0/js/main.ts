@@ -7,18 +7,17 @@ interface Istudent {
 
 }
 
-
 const student1: Istudent = {
-    firstName: "st1",
-    lastName: "st11",
+    firstName: "Ptarick",
+    lastName: "Jean luca",
     age: 1,
-    location:"std"
+    location:"Paris sur mer"
 }
 const student2: Istudent = {
-    firstName: "st2",
-    lastName: "st12",
+    firstName: "Lisa",
+    lastName: "Sandrino",
     age: 2,
-    location:"std"
+    location:"New York"
 }
 const headers = ["firstName", "location"];
 
@@ -31,8 +30,9 @@ function generateTableHead(table: HTMLTableElement,headers: string[]): void {
 
     headers.forEach((headerTitle) =>{
         const th: HTMLTableHeaderCellElement  = document.createElement("th");
-        const text: Text = document.createTextNode(headerTitle);
-        th.appendChild(text);
+        th.innerText = headerTitle;
+        //const text: Text = document.createTextNode(headerTitle);
+        //th.appendChild(text);
         row.appendChild(th);
         thead.appendChild(row)
     })
@@ -55,12 +55,21 @@ function generateTable(table: HTMLTableElement, data: Istudent[]): void{
 }
 
 
+
 const body: HTMLBodyElement = document.getElementsByTagName("body")[0];
 const table: HTMLTableElement = document.createElement("table");
 body.appendChild(table)
 
-generateTableHead(table, headers);
+/*generateTableHead(table, headers);*/
+const thead: HTMLTableSectionElement = document.createElement("thead");
+const rowHead: HTMLTableRowElement = thead.insertRow(0);
+const cell1Head: HTMLTableCellElement = rowHead.insertCell(0);
+const cell2Head: HTMLTableCellElement = rowHead.insertCell(1);
 
+cell1Head.innerHTML = "firstName";
+cell2Head.innerHTML = "location";
+
+table.append(thead);
 generateTable(table, studentsList);
 
 
