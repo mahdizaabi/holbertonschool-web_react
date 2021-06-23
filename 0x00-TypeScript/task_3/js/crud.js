@@ -1,6 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/triple-slash-reference
-/// <reference path="./crud.d.ts" />
-
 export function insertRow(row) {
     console.log('Insert row', row);
     return Math.floor(Math.random() * Math.floor(1000));
