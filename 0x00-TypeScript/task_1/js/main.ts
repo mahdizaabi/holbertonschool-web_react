@@ -21,8 +21,8 @@ interface StudentClassInterface {
     displayName(): string;
 }
 class StudentClass implements StudentClassInterface {
-    private firstName: string;
-    private lastName: string;
+     firstName: string;
+     lastName: string;
     constructor(firstName:string, lastName:string){
         this.firstName = firstName;
         this.lastName = lastName;
@@ -38,3 +38,9 @@ class StudentClass implements StudentClassInterface {
 interface StudentConstructor {
     (firstName: string, lastName: string): StudentClassInterface;
   } 
+
+  
+  
+  const ins = new StudentClass("émahd", "émlml");
+  console.log(ins.displayName())
+  console.log(ins.workOnHomework())
