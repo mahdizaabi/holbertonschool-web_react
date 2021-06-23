@@ -1,4 +1,4 @@
-import {RowElement,RowID } from './interfaces';
+import {RowElement,RowID } from './interface';
 
 
 declare function insertRow(params: RowElement): number;
