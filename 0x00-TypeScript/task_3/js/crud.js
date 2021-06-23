@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/triple-slash-reference
+/// <reference path="./crud.d.ts" />
 
 export function insertRow(row) {
     console.log('Insert row', row);
