@@ -37,7 +37,7 @@ interface DirectorInterface {
   }
   
   export function createEmployee(salary: number | string): Teacher | Director {
-    if (typeof salary === "number" && salary < 500) return new Teacher();
+    if (salary < 500) return new Teacher();
   
     return new Director();
   }
