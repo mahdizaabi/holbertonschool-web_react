@@ -15,4 +15,4 @@ interface Directors extends Teacher {
 interface printTeacherFunction {
 	(firstName: string, lastName: string): string;
 }
-const printTeacher =  (firstName: string,lastName: string): string => `${firstName[0]}. ${lastName}`;
+const printTeacher:printTeacherFunction =  (firstName: string,lastName: string): string => `${firstName[0]}. ${lastName}`;
