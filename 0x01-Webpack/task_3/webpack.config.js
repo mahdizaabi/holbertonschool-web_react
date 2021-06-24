@@ -40,6 +40,14 @@ module.exports = {
 			],
 		}
 		],
+	}, devtool: 'inline-source-map',
+	optimization: {
+		splitChunks: {
+			chunks: 'all',
+		},
+	},
+	performance: {
+		maxAssetSize: 100000,
 	},
 	plugins: [
 		new HtmlWebpackPlugin(),
