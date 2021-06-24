@@ -14,5 +14,5 @@ $.when( $.ready ).then(function() {
         $('#count').text(`${counter} clicks on the button`);
     }
 
-    $('button').on('click', _.debounce(updateCounter, 5))
+    $('button').on('click', _.debounce(updateCounter, 800))
   });
