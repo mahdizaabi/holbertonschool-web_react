@@ -11,9 +11,10 @@ module.exports = {
 	},
 	output: {
 		path: path.resolve(__dirname, 'public'),
-		filename: '[name].bundle.js'
+		filename: '[name].bundle.js',
+		clean:true,
 	},
-	mode: 'production',
+	mode: 'development',
 	performance: {
 		maxAssetSize: 100000,
 	},
@@ -45,9 +46,6 @@ module.exports = {
 		splitChunks: {
 			chunks: 'all',
 		},
-	},
-	performance: {
-		maxAssetSize: 100000,
 	},
 	plugins: [
 		new HtmlWebpackPlugin(),
