@@ -2,13 +2,13 @@ import React from 'react';
 import holbertonLogo from './holberton.jpg'
 import './App.css';
 import { getFullYear, getFooterCopy } from './utils';
-import { Notification } from './Notifications';
+import { Notifications } from './Notifications';
 
 
 function App() {
   return (
     <div className="container">
-          <Notification />
+          <Notifications />
       <div className="App-header">
         <img src={holbertonLogo} alt="logo" />
         <h1>School dashboard</h1>

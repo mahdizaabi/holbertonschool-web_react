@@ -3,7 +3,7 @@ import './Notifications.css';
 import closeIcon from './closeIcon.png';
 import { getLatestNotification } from './utils';
 
-export const Notification = () => (
+export const Notifications = () => (
     <div className="Notifications" style={{"paddingBottom": "18px"}}>
         <div style={{"padding": "18px", "display": "flex", "justifyContent": "space-between"}}>
         <p style={{"fontSize": "18px"}}>
