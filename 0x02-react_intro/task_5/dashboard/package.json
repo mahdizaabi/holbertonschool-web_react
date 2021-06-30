@@ -1,0 +1,14 @@
+{
+  "name": "webpack_from_scratch",
+  "version": "1.0.0",
+  "description": "generate a react project from scratch",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.41.1"
+  }
+}
