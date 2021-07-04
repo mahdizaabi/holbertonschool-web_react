@@ -1,32 +1,52 @@
 {
-  "name": "webpack_from_scratch",
+  "name": "dashboard",
   "version": "1.0.0",
-  "description": "generate a react project from scratch",
+  "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "bundle": "webpack -c ./config/webpack.config.js",
-    "start-dev": "webpack serve -c ./config/webpack.config.js --open"
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "clean-webpack-plugin": "^4.0.0-alpha.0",
-    "css-loader": "^5.2.6",
-    "file-loader": "^6.2.0",
-    "html-webpack-plugin": "^5.3.2",
-    "image-webpack-loader": "^7.0.1",
-    "source-map-loader": "^3.0.0",
-    "style-loader": "^2.0.0",
-    "webpack": "^5.41.1",
-    "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^3.11.2",
-    "web-vitals": "^2.0.1",
-    "react-loader": "^2.4.7",
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-react": "^7.14.5",
     "babel": "^6.23.0",
-    "babel-loader": "^8.2.2"
-  }
+    "babel-jest": "^27.0.6",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.6",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "image-webpack-loader": "^7.0.1",
+    "jest": "^27.0.6",
+    "react-loader": "^2.4.7",
+    "style-loader": "^3.0.0",
+    "web-vitals": "^2.0.1",
+    "webpack": "^5.41.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "scripts": {
+    "build": "webpack -c ./config/webpack.config.js",
+    "start-dev": "webpack serve --mode development -c ./config/webpack.config.js --open",
+    "start": "webpack-dev-server --mode development --config config/webpack.config.js",
+    "test": "jest"
+  },
+  "jest": {
+    "verbose": true,
+    "clearMocks": true,
+    "setupFilesAfterEnv": ["<rootDir>/config/setupTests.js"],
+    "transform": {
+        "^.+\\.js$": "babel-jest"
+    },
+    "moduleNameMapper": {
+        "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+        "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
