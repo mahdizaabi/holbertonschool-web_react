@@ -1,0 +1,56 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+  padding: 8px;
+  height: 100vh;
+  display:flex;
+  flex-direction: column;
+ justify-content: space-between;
+}
+
+.App-header{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  border-bottom: 5px solid #EB0045;
+}
+
+
+
+.App-header img{
+  height:120px;
+  width:200px;
+  flex:0.1;
+}
+
+.App-header h1 {
+  text-align: center;
+  color:#EB0045;
+  margin: 0 38px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 800;
+
+
+}
+.App-body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  padding: 18px;
+  flex:0.6;
+  font-weight: 800;
+
+}
+
+.App-footer {
+  border-top: 5px solid #EB0045;
+  text-align: center;
+  flex: 0.1;
+  padding-top: 12px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 500;
+
+}
