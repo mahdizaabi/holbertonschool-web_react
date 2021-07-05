@@ -3,7 +3,8 @@ import './Login.css';
 
 export const LoginComponent = () => {
     return (
-        <React.Fragment className="App-body">
+        <React.Fragment>
+            <div className="App-body">           
             <p>Login to access the full dashboard</p>
             <div className="form">
                 <form style={{ "display": "flex", "flex-direction": "column", "width": "20%" }}>
@@ -13,6 +14,7 @@ export const LoginComponent = () => {
                     <input type="password" name="pwdInput" id="pwdInput" />
                     <button type="submit">OK</button>
                 </form>
+            </div>
             </div>
         </React.Fragment>
     )

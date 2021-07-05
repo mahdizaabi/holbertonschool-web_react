@@ -5,8 +5,6 @@ import { shallow } from 'enzyme';
 
 describe('<Header />', () => {
 
-    
-
     it('Header renders without crashing', () => {
         const wrapper = shallow(<Header />);
         expect(wrapper).toHaveLength(1);
@@ -19,7 +17,6 @@ describe('<Header />', () => {
 
     it('Header have img', () => {
         const wrapper = shallow(<Header />);
-        console.log(wrapper.html())
         expect(wrapper.find('div.App-header img')).toHaveLength(1);
     });
    
@@ -27,9 +24,4 @@ describe('<Header />', () => {
         const wrapper = shallow(<Header />);
         expect(wrapper.contains(<h1>School dashboard</h1>)).toBeTruthy();
     });
-
-
-  
-
-
 });
