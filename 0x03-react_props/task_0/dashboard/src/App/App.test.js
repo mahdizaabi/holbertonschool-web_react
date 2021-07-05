@@ -12,7 +12,4 @@ describe('<App />', () => {
     const wrapper = shallow(<App />)
     expect(wrapper.find('.container').children()).toHaveLength(4);
   })
-
-
-
 });
