@@ -1,0 +1,10 @@
+
+.App-footer {
+    border-top: 5px solid #EB0045;
+    text-align: center;
+    flex: 0.1;
+    padding-top: 12px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 500;
+  
+  }
