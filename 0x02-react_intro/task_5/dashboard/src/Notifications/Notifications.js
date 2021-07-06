@@ -1,7 +1,7 @@
 import React from 'react';
 import './Notifications.css';
-import closeIcon from './closeIcon.png';
-import { getLatestNotification } from './utils';
+import closeIcon from '../assets/closeIcon.png';
+import { getLatestNotification } from '../utils/utils';
 
 export const Notifications = () => (
     <div className="Notifications" style={{"paddingBottom": "18px"}}>

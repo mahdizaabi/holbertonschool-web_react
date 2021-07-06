@@ -31,7 +31,7 @@
   "scripts": {
     "build": "webpack",
     "start-dev": "webpack serve",
-    "start": "webpack serve --mode development",
+    "start": "webpack serve --mode development --config config/webpack.config.js",
     "test": "jest"
   },
   "jest": {

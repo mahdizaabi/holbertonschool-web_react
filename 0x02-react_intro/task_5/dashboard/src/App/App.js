@@ -1,8 +1,8 @@
 import React from 'react';
-import holbertonLogo from './holberton.jpg'
+import holbertonLogo from '../assets/holberton.jpg'
 import './App.css';
-import { getFullYear, getFooterCopy } from './utils';
-import { Notifications } from './Notifications';
+import { getFullYear, getFooterCopy } from '../utils/utils';
+import { Notifications } from '../Notifications/Notifications';
 
 
 function App() {
