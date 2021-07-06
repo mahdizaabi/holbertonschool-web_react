@@ -1,26 +1,31 @@
 const path = require('path');
 
 module.exports = {
-	context: path.resolve(__dirname, '../src'),
-	entry: './index.js',
+	entry: './src/index.js',
 	output: {
-		path: path.resolve('./public'),
+		path: path.resolve(__dirname, 'public'),
 		filename: 'bundle.js',
 		clean: true,
+		publicPath: '/',
 	},
 	mode: 'development',
 	devServer: {
-		contentBase: path.resolve('../dist/'),
+		contentBase: path.resolve('public'),
 		compress: true,
 		port: 8564,
 		hot: true,
+		writeToDisk: true,
+		historyApiFallback: true,
+
+		publicPath: '/',
+		
 	},
 	devtool: 'inline-source-map',
 	performance: {
-    maxAssetSize: 100000,
-  },
+		maxAssetSize: 100000,
+	},
 	module: {
-    rules: [
+		rules: [
 			{
 				test: /\.css$/, use: ['style-loader', 'css-loader']
 			},
@@ -57,6 +62,6 @@ module.exports = {
 					}
 				}
 			},
-    ],
+		],
 	},
 }

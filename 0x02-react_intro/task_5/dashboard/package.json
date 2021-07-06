@@ -29,21 +29,23 @@
     "webpack-dev-server": "^3.11.2"
   },
   "scripts": {
-    "build": "webpack -c ./config/webpack.config.js",
-    "start-dev": "webpack serve --mode development -c ./config/webpack.config.js --open",
-    "start": "webpack-dev-server --mode development --config config/webpack.config.js",
+    "build": "webpack",
+    "start-dev": "webpack serve",
+    "start": "webpack serve --mode development",
     "test": "jest"
   },
   "jest": {
     "verbose": true,
     "clearMocks": true,
-    "setupFilesAfterEnv": ["<rootDir>/config/setupTests.js"],
+    "setupFilesAfterEnv": [
+      "<rootDir>/config/setupTests.js"
+    ],
     "transform": {
-        "^.+\\.js$": "babel-jest"
+      "^.+\\.js$": "babel-jest"
     },
     "moduleNameMapper": {
-        "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-        "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
     }
   },
   "keywords": [],
