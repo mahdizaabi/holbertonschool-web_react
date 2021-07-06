@@ -7,9 +7,9 @@ export const LoginComponent = () => {
             <div className="App-body">           
             <p>Login to access the full dashboard</p>
             <div className="form">
-                <form style={{ "display": "flex", "flex-direction": "column", "width": "20%" }}>
+                <form style={{ "display": "flex", "flexDirection": "column", "width": "20%" }}>
                     <label htmlFor="email">Email</label>
-                    <input type="email" style={{ "flex-basis": "0.2" }} name="email" id="email" />
+                    <input type="email" style={{ "flexBasis": "0.2" }} name="email" id="email" />
                     <label htmlFor="pwdInput">Password</label>
                     <input type="password" name="pwdInput" id="pwdInput" />
                     <button type="submit">OK</button>

@@ -3,7 +3,8 @@ import { shallow } from 'enzyme';
 import App from './App';
 import { CourseList } from '../CourseList/CourseList'
 import { LoginComponent } from '../Login/Login';
-import {Footer} from '../Footer/Footer';
+import { Footer } from '../Footer/Footer';
+import { Notifications } from '../Notifications/Notifications'
 describe('<App />', () => {
   let wrapper;
   beforeAll(() => {
@@ -19,8 +20,8 @@ describe('<App />', () => {
   })
 
   test('<CourseList /> rendred when logedin is false', () => {
-   const  wrapper = shallow(<App />);
-  
+    const wrapper = shallow(<App />);
+
     wrapper.setProps({ "isLoggedIn": false });
     expect(wrapper).toHaveLength(1);
     expect(wrapper.containsMatchingElement(<CourseList />)).toBeFalsy()
@@ -34,20 +35,23 @@ describe('<App />', () => {
   describe('IsLogedin: true', () => {
     let wrapper;
     wrapper = shallow(<App />);
-    wrapper.setProps({ "isLoggedIn": true});
+    wrapper.setProps({ "isLoggedIn": true });
     it('<Login /> is not rendred when logedin is true', () => {
       expect(wrapper.containsMatchingElement(<LoginComponent />)).toBeFalsy();
     });
 
-    it('<CourseList /> is  rendred when logedin is true', () => {
+    it('<Notifications /> is  rendred when logedin is true', () => {
       let wrapper;
-    wrapper = shallow(<App />);
-    wrapper.setProps({ "isLoggedIn": true, "listCourses":[
-      { id: 1, name: 'ES6', credit: 60 },
-      { id: 2, name: 'Webpack', credit: 20 },
-      { id: 3, name: 'React', credit: 40 }
-    ]});
-      expect(wrapper.containsMatchingElement(<CourseList />)).toBeTruthy();
+      wrapper = shallow(<App />);
+      wrapper.setProps({
+        "isLoggedin": true,
+        "listCourses": [
+          { id: 1, name: 'ES6', credit: 60 },
+          { id: 2, name: 'Webpack', credit: 20 },
+          { id: 3, name: 'React', credit: 40 }
+        ]
+      });
+      expect(wrapper.containsMatchingElement(<Notifications/>)).toBeFalsy();
     });
   })
 

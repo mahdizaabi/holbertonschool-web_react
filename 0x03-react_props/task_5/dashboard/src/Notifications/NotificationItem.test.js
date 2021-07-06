@@ -24,4 +24,6 @@ describe('<NotificationItem />', () => {
             html={{ __html: '<u>test</u>' }} />);
         expect(wrapper.html()).toBe("<li><u>test</u></li>");
     });
+
+  
 });

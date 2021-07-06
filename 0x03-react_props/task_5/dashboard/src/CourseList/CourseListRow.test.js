@@ -37,4 +37,7 @@ describe('<CourseList />', () => {
         expect(wrapper.children()).toHaveLength(1);
         expect(wrapper.html().includes("colSpan=\"2\"")).toBeTruthy()
     });
+    
+   
 });
+
