@@ -16,12 +16,12 @@ describe('<CourseList />', () => {
             textSecondCell: 'testSecondCell'
         });
         expect(wrapper).toHaveLength(1);
-        expect(wrapper.html()).toBe("<tr class=\"row\"> <td>testFirstCell </td><td>testSecondCell</td> </tr>")
+        expect(wrapper.html()).toBe("<tr class=\"row\"> <td>testFirstCell</td><td>testSecondCell</td> </tr>")
     });
     it('Renders two cells when Isheader true, andtextSecond is present', () => {
         wrapper.setProps({ isHeader: true, textFirstCell: "firstCell", textSecondCell: "secondCell" });
         expect(wrapper).toHaveLength(1);
-        expect(wrapper.html()).toBe("<tr class=\"row\"><th>firstCell </th><th>secondCell</th></tr>")
+        expect(wrapper.html()).toBe("<tr class=\"row\"><th>firstCell</th><th>secondCell</th></tr>")
     });
 
 

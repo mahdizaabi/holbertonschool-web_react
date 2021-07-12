@@ -33,7 +33,7 @@ class App extends React.Component {
     }
 
     componentWillUnmount() {
-        document.removeEventListener('keydown', (e)=>this.handelKeyPress(e));
+    document.removeEventListener('keydown', (e)=>this.handelKeyPress(e));
     }
     render() {
       return  (

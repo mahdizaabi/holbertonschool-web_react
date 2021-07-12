@@ -23,8 +23,7 @@ const CourseList = ({listCourses}) => {
 
     return (
         <table id="CourseList">
-            <thead>
-                <CourseListRow
+            <thead><CourseListRow
                     isHeader={true}
                     textFirstCell="Available courses"
                 />
@@ -32,9 +31,7 @@ const CourseList = ({listCourses}) => {
                     isHeader={true}
                     textFirstCell="Course name"
                     textSecondCell="Credit"
-                />
-            </thead>
-
+                /></thead>
             <tbody>
                 {listCourses.map(item => {
                     return (<CourseListRow
@@ -43,7 +40,6 @@ const CourseList = ({listCourses}) => {
                         textFirstCell={item.name}
                         textSecondCell={item.credit}
                     />)
-
                 })}
             </tbody>
 
