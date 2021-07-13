@@ -28,7 +28,7 @@ describe('<Notifications />', () => {
     it('first <NotificationItem /> node render the right html', () => {
         const wrapper = shallow(<Notifications />);
         wrapper.setProps({ "displayDrawer": true, "listNotifications": [{ id: 1, type: "default", value: "test", html: "" }] });
-        expect(wrapper.find(".listNotificationItems").children().first().html()).toBe("<li>test</li>")
+        expect(wrapper.find(".listNotificationItems").children().first().html()).toBe("<li type=\"default\">test</li>")
     })
 
     it('last <NotificationItem /> node render the right html', () => {

@@ -1,7 +1,7 @@
-const bodySection = ({ComponentChildren}) => (
-    <div>
-        <h2>test</h2>
-        <h2>{ComponentChildren}</h2>
+const BodySection  = ({children, title}) => (
+    <div className="bodySection">
+        <h2>{title}</h2>
+        {children}
     </div>
 )
-export {bodySection};
+export {BodySection };
