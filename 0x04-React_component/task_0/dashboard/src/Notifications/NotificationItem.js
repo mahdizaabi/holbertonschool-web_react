@@ -32,7 +32,7 @@ NotificationItem.prototype = {
     markAsRead:PropTypes.func.isRequired
 }
 NotificationItem.defaultProps = {
-    markAsRead: function(){}
+    markAsRead: function(){},
 }
 
 export {NotificationItem};

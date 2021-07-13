@@ -36,7 +36,9 @@ describe('<NotificationItem />', () => {
             markAsRead = {markAsReadSpy}
             id = {id} />);
         wrapperx.simulate("click")
-        expect(markAsReadSpy).toHaveBeenCalledWith(14)
+        expect(markAsReadSpy).toHaveBeenCalledWith(14);
+        jest.restoreAllMocks();
+
       })
 
   

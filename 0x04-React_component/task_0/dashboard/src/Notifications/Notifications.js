@@ -41,7 +41,7 @@ class Notifications extends React.Component{
                         markAsRead={this.markAsRead}
                         key={item.id}
                         id={item.id}
-                        type={item.default}
+                        type={item.type}
                         value={item.value}
                         html={item.html || ''}
                         />

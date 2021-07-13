@@ -98,4 +98,5 @@ describe('<App />', () => {
         expect(logout).toHaveBeenCalled();
         jest.restoreAllMocks();
     });
+
 });
