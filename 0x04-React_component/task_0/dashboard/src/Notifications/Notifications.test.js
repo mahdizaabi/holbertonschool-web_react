@@ -78,13 +78,20 @@ describe('<Notifications />', () => {
         const wrapper = shallow(<Notifications />)
         wrapper.setProps({
             "displayDrawer": true, "listNotifications": [
-                { id: 1, type: "defualt", value: "new course available", html: '' },
-                { id: 2, type: "urgent", value: "new resumee avaialble", html: '' },
+                { id: 1, type: "defualt", value: "new course available" },
+                { id: 2, type: "urgent", value: "new resumee avaialble" },
                 { id: 3, type: "ultraUrgent", html: getLatestNotification() }
             ]
         })
         expect(wrapper.find('.listNotificationItems').children()).toHaveLength(3);
     });
 
+    it('Unit test of the method markAsRead', ()=>{
+      const consoleSpy = jest.spyOn(console, "log");
+      const wrapper = shallow(<Notifications />);
+      const instance = wrapper.instance();
+      instance.markAsRead(14)
+      expect(consoleSpy).toHaveBeenCalledWith("Notification 14 has been marked as read");
+    })
 
 });

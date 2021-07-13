@@ -14,12 +14,31 @@ const listCourses = [
   ]
 
   const NotficationsList = [
-    { id: 1, type: "defualt", value: "new course available", html:'' },
-    { id: 2, type: "urgent", value: "new resumee avaialble" ,  html:'' },
+    { id: 1, type: "defualt", value: "new course available" },
+    { id: 2, type: "urgent", value: "new resumee avaialble" },
     { id: 3, type: "ultraUrgent", html: getLatestNotification() }
 
   ]
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handelKeyPress = this.handelKeyPress.bind(this);
+      }
+
+    handelKeyPress(e){
+        if(e.key === "h" && e.ctrlKey){
+            alert("Logging you out");
+            this.props.logOut();
+
+        }
+    }
+    componentDidMount() {
+    document.addEventListener('keydown', this.handelKeyPress)
+    }
+
+    componentWillUnmount() {
+    document.removeEventListener('keydown', (e)=>this.handelKeyPress(e));
+    }
     render() {
       return  (
         <div className="container">
@@ -35,9 +54,13 @@ class App extends React.Component {
       );
     }
   }
+  App.prototypes = {
+    logOut:  PropTypes.func
+}
 
 
 App.defaultProps = {
-  isLoggedIn: true
+  isLoggedIn: true,
+  logOut: function(){}
 }
 export default App;

@@ -4,11 +4,9 @@ import './CourseList.css'
 
 const CourseListRow = ({ isHeader, textFirstCell, textSecondCell }) => {
     return (
-        <tr className="row">
-            {isHeader && !textSecondCell && <th colSpan = "2">{textFirstCell}</th>}
-            {isHeader && textSecondCell && (<><th>{textFirstCell} </th><th>{textSecondCell}</th></>)}
-            {!isHeader && (<> <td>{textFirstCell} </td><td>{textSecondCell}</td> </>)}
-        </tr>
+        <tr className="row">{isHeader && !textSecondCell && <th colSpan = "2">{textFirstCell}</th>}
+            {isHeader && textSecondCell && (<><th>{textFirstCell}</th><th>{textSecondCell}</th></>)}
+            {!isHeader && (<> <td>{textFirstCell}</td><td>{textSecondCell}</td> </>)}</tr>
     )
 }
 

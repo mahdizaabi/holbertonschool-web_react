@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { NotificationItem } from './NotificationItem';
-
+import { Notifications} from './Notifications'
 
 describe('<NotificationItem />', () => {
     it('NotificationItem renders without crashing', () => {
@@ -24,6 +24,20 @@ describe('<NotificationItem />', () => {
             html={{ __html: '<u>test</u>' }} />);
         expect(wrapper.html()).toBe("<li><u>test</u></li>");
     });
+    it('Unit test of the method markAsRead', ()=>{
+        const wrapper = shallow(<Notifications />);
+        const instance = wrapper.instance();
+        const markAsReadSpy =jest.fn();
+
+        const id = 14;
+        const wrapperx = shallow(<NotificationItem
+            type="urgent"
+            value = "test"
+            markAsRead = {markAsReadSpy}
+            id = {id} />);
+        wrapperx.simulate("click")
+        expect(markAsReadSpy).toHaveBeenCalledWith(14)
+      })
 
   
 });
