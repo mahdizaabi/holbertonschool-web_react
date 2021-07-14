@@ -1,0 +1,21 @@
+
+
+
+.row th, .row td{
+
+    border-bottom:  2px solid rgb(221, 221, 221);
+    border-left:  2px solid rgb(221, 221, 221);
+    text-align: left;
+}
+
+.row th[colSpan='2']{
+    text-align: center;
+    border-left: 0px solid rgb(221, 221, 221);
+}
+
+#CourseList {
+    margin:auto;
+    width: 80%;
+    padding: 28px 28px;
+}
+

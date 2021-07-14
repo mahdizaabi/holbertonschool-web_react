@@ -1,0 +1,43 @@
+
+.containerx {
+  width: 30%;
+  position: absolute;
+  right: 0;
+  font-size: 18px;
+  
+  margin-right: 12px;
+  font-weight: 800;
+}
+
+.containerx .menuItem {
+  text-align: right;
+  font-size: 18px;
+  color: #EB0045;
+}
+
+.Notifications {
+    border: 2px dashed #EB0045;
+    font-weight: 700;
+    margin-right: 0;
+    
+}
+
+.Notifications button {
+  position: absolute;
+  right: 4px;
+  top: 26px;
+}
+li{
+    font-size: 14px;
+}
+li[type='default'] {
+    color: blue;
+  }
+li[type='urgent'] {
+    color: red;
+    font-weight: 600;
+  }
+li[type='ultraUrgent'] {
+    color: rgb(161, 5, 5);
+    font-weight: 600;
+  }
