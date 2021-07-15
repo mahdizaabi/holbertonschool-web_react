@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import './CourseList.css'
 
 const CourseListRow = ({ isHeader, textFirstCell, textSecondCell }) => {
+    const rowColor = isHeader ? '#deb5b545' : '#f5f5f5ab';
+    const style = {"backgroundColor":`${rowColor}`}
     return (
-        <tr className="row">{isHeader && !textSecondCell && <th colSpan = "2">{textFirstCell}</th>}
+        <tr className="row" style={style}>{isHeader && !textSecondCell && <th colSpan = "2">{textFirstCell}</th>}
             {isHeader && textSecondCell && (<><th>{textFirstCell}</th><th>{textSecondCell}</th></>)}
             {!isHeader && (<> <td>{textFirstCell}</td><td>{textSecondCell}</td> </>)}</tr>
     )

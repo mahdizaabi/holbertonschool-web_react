@@ -14,11 +14,7 @@ class Notifications extends React.Component {
         console.log(`Notification ${id} has been marked as read`)
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        if (nextProps.listNotifications.length !== this.props.listNotifications.length)
-            return true;
-        return false;
-    }
+   
     render() {
         return (<div className="containerx">
             <div className="menuItem">

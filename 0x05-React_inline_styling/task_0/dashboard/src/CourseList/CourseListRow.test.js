@@ -10,25 +10,30 @@ describe('<CourseList />', () => {
       wrapper = shallow(<CourseListRow />);
     });
     
-    it('Render a row with two cells win isHeader is False', () => {
+    it('Render a row with two cells when isHeader is False', () => {
         wrapper.setProps({
+            isHeader: false,
             textFirstCell: 'testFirstCell',
             textSecondCell: 'testSecondCell'
         });
-        expect(wrapper).toHaveLength(1);
-        expect(wrapper.html()).toBe("<tr class=\"row\"> <td>testFirstCell</td><td>testSecondCell</td> </tr>")
+        expect(wrapper.children()).toHaveLength(4);
+        expect(wrapper.html()).toBe("<tr class=\"row\" style=\"background-color:#f5f5f5ab\"> <td>testFirstCell</td><td>testSecondCell</td> </tr>")
     });
-    it('Renders two cells when Isheader true, andtextSecond is present', () => {
+    it('Renders two cells when Isheader true, and textSecond is present', () => {
         wrapper.setProps({ isHeader: true, textFirstCell: "firstCell", textSecondCell: "secondCell" });
         expect(wrapper).toHaveLength(1);
-        expect(wrapper.html()).toBe("<tr class=\"row\"><th>firstCell</th><th>secondCell</th></tr>")
+        expect(wrapper.html()).toBe("<tr class=\"row\" style=\"background-color:#deb5b545\"><th>firstCell</th><th>secondCell</th></tr>")
     });
+
 
 
     it('RenderOnly one cell when isHeader true', () => {
         wrapper.setProps({ isHeader: true });
         expect(wrapper).toHaveLength(1);
-        expect(wrapper.html()).toBe("<tr class=\"row\"><th colSpan=\"2\"></th></tr>")
+    });
+    it('correct style for the cell when isHeader true', () => {
+        wrapper.setProps({ isHeader: true });
+        expect(wrapper.html()).toBe("<tr class=\"row\" style=\"background-color:#deb5b545\"><th colSpan=\"2\"></th></tr>")
     });
 
     it('RenderOnly one cell when isHeader true with colSpan = 2', () => {

@@ -47,7 +47,6 @@ class App extends React.Component {
     }
 
     render() {
-        console.log(<Footer/>)
         return (
             <div className="container">
                 { /****Notifications***/}
@@ -73,7 +72,7 @@ class App extends React.Component {
                     </BodySectionWithMarginBottom>)}
 
                 { /****<Footer></Footer>***/}
-                <FooterWithLogging />
+                <Footer />
                 
             </div>
         );
