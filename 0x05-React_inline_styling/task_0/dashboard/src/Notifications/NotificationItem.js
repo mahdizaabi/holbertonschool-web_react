@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
     if (html) {
         return (
             <li
-            type={type}
+            className={type}
             onClick={()=>markAsRead(id)}
             dangerouslySetInnerHTML={html}>
             </li>
@@ -14,8 +14,8 @@ import PropTypes from 'prop-types'
     }
     return (
         <li
-        onClick={()=>markAsRead(id)}
-        type={type}>
+        className={type}
+        onClick={()=>markAsRead(id)}>
             {value}
         </li>
     )

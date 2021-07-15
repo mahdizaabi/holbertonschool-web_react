@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
 import { LoginComponent } from '../Login/Login';
@@ -10,7 +9,19 @@ import { CourseList } from '../CourseList/CourseList';
 import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
 import BodySection from '../BodySection/BodySection';
 import withLogging from '../HOC/WithLogging';
+import { css, StyleSheet } from "aphrodite";
 
+/***Styles: ***/
+
+const styles = StyleSheet.create({
+    
+    container: {
+        padding: "8px",
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column"
+    }
+});
 const listCourses = [
     { id: 1, name: 'ES6', credit: 60 },
     { id: 2, name: 'Webpack', credit: 20 },
@@ -23,7 +34,7 @@ const NotficationsList = [
     { id: 3, type: "ultraUrgent", html: getLatestNotification() }
 
 ]
-const FooterWithLogging  = withLogging(Footer);
+const FooterWithLogging = withLogging(Footer);
 
 class App extends React.Component {
     constructor(props) {
@@ -48,7 +59,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className="container">
+            <div className={css(styles.container)}>
                 { /****Notifications***/}
                 <Notifications
                     displayDrawer={this.props.isLoggedIn}
@@ -73,7 +84,7 @@ class App extends React.Component {
 
                 { /****<Footer></Footer>***/}
                 <Footer />
-                
+
             </div>
         );
     }
