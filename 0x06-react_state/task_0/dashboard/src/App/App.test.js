@@ -5,6 +5,9 @@ import { CourseList } from '../CourseList/CourseList'
 import { LoginComponent } from '../Login/Login';
 import { Footer } from '../Footer/Footer';
 import { Notifications } from '../Notifications/Notifications'
+import { StyleSheetTestUtils } from 'aphrodite';
+
+StyleSheetTestUtils.suppressStyleInjection();
 describe('<App />', () => {
     let wrapper;
     beforeAll(() => {
@@ -15,11 +18,12 @@ describe('<App />', () => {
         expect(wrapper).toHaveLength(1);
     });
 
-    /*
+    
     it('render 4 components', () => {
-        expect(wrapper.find('.container').children()).toHaveLength(4);
+        console.log(wrapper.find('.container').children().at(1).html())
+        expect(wrapper.find('.container').children()).toHaveLength(5);
     })
-*/
+
     test('<CourseList /> rendred when logedin is false', () => {
         const wrapper = shallow(<App />);
 
