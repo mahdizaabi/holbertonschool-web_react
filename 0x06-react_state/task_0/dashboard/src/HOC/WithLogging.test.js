@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import withLogging from './WithLogging';
-import { Footer } from '../Footer/Footer';
+import  Footer  from '../Footer/Footer';
 describe('<HOC Component />', () => {
     let consoleLogMock;
     beforeEach(() => {

@@ -1,13 +1,18 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import {Footer} from './Footer';
+import Footer from './Footer';
+import { StyleSheetTestUtils } from 'aphrodite';
 
-
+StyleSheetTestUtils.suppressStyleInjection();
 
 describe('<Footer />', () => {
+  it('renders a <Footer /> component', () => {
+    const wrapper = shallow(<Footer />);
+    expect(wrapper).toHaveLength(1);
+	});
 
-    it('Footer renders without crashing', () => {
-        const wrapper = shallow(<Footer />);
-        expect(wrapper.last().text()).toBe("Copyright 2021 - Holberton School");
-    });
+	it('renders a <Footer /> component and checks contents', () => {
+    const wrapper = shallow(<Footer />);
+    expect(wrapper.find('footer p').text()).toContain('Copyright');
+	});
 });

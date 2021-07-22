@@ -1,43 +1,32 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import PropTypes from 'prop-types';
-import { CourseListRow } from './CourseListRow';
+import CourseListRow from './CourseListRow';
+import { StyleSheetTestUtils } from 'aphrodite';
 
+StyleSheetTestUtils.suppressStyleInjection();
 
-describe('<CourseList />', () => {
-    let wrapper;
-    beforeEach(() => {
-      wrapper = shallow(<CourseListRow />);
-    });
-    
-    it('Render a row with two cells win isHeader is False', () => {
-        wrapper.setProps({
-            textFirstCell: 'testFirstCell',
-            textSecondCell: 'testSecondCell'
-        });
-        expect(wrapper).toHaveLength(1);
-        expect(wrapper.html()).toBe("<tr class=\"row\"> <td>testFirstCell</td><td>testSecondCell</td> </tr>")
-    });
-    it('Renders two cells when Isheader true, andtextSecond is present', () => {
-        wrapper.setProps({ isHeader: true, textFirstCell: "firstCell", textSecondCell: "secondCell" });
-        expect(wrapper).toHaveLength(1);
-        expect(wrapper.html()).toBe("<tr class=\"row\"><th>firstCell</th><th>secondCell</th></tr>")
-    });
+describe('<CourseListRow />', () => {
+  it('renders a <CourseListRow /> component', () => {
+    const wrapper = shallow(<CourseListRow textFirstCell="First cell text"/>);
+    expect(wrapper).toHaveLength(1);
+	});
 
+	it('renders a <CourseListRow /> component with isHeader set to true and textSecondCell === null', () => {
+		const wrapper = shallow(<CourseListRow isHeader={true} textFirstCell="First cell text" />);
+		expect(wrapper.find('th')).toHaveLength(1);
+		expect(wrapper.find('th').get(0).props.colSpan).toEqual(2);
+		expect(wrapper.find('th').get(0).props.children).toEqual('First cell text');
+	});
 
-    it('RenderOnly one cell when isHeader true', () => {
-        wrapper.setProps({ isHeader: true });
-        expect(wrapper).toHaveLength(1);
-        expect(wrapper.html()).toBe("<tr class=\"row\"><th colSpan=\"2\"></th></tr>")
-    });
+	it('renders a <CourseListRow /> component with isHeader set to true and textSecondCell !== null', () => {
+    const wrapper = shallow(<CourseListRow isHeader={true} textFirstCell="First cell text" textSecondCell="Second cell text"/>);
+		expect(wrapper.find('th')).toHaveLength(2);
+		expect(wrapper.find('th').get(0).props.children).toEqual('First cell text');
+		expect(wrapper.find('th').get(1).props.children).toEqual('Second cell text');
+	});
 
-    it('RenderOnly one cell when isHeader true with colSpan = 2', () => {
-        wrapper.setProps({ isHeader: true });
-        expect(wrapper).toHaveLength(1);
-        expect(wrapper.children()).toHaveLength(1);
-        expect(wrapper.html().includes("colSpan=\"2\"")).toBeTruthy()
-    });
-    
-   
+	it('renders a <CourseListRow /> component with isHeader set to false by default', () => {
+    const wrapper = shallow(<CourseListRow textFirstCell="First cell text"/>);
+		expect(wrapper.find('tr td')).toHaveLength(2);
+	});
 });
-

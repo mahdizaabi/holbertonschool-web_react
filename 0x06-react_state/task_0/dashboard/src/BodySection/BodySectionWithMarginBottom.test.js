@@ -1,23 +1,22 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import BodySectionWithMarginBottom from './BodySectionWithMarginBottom';
 import BodySection from './BodySection';
+import { StyleSheetTestUtils } from 'aphrodite';
+
+StyleSheetTestUtils.suppressStyleInjection();
 
 
-describe("<BodySection />", () => {
-    it('render correctly the props', () => {
-        const wrapper = shallow(<BodySection title="test" />);
-        expect(wrapper.children()).toHaveLength(1);
-        expect(wrapper.children().text() === "test").toBeTruthy();
-        expect(wrapper.children().text()).toBe("test");
-        expect(wrapper.children().html()).toBe("<h2>test</h2>");
-    })
-    it('render correctly both the children component and titel passed as prop', () => {
-        const wrapper = shallow(<BodySection title="proptitle">
-            <p>childcomponent</p>
-        </BodySection>);
-        expect(wrapper.children()).toHaveLength(2);
-        expect(wrapper.childAt(0).text()).toBe("proptitle");
-        expect(wrapper.childAt(1).text()).toBe("childcomponent");
-    })
-   
-})
+describe('<BodySectionWithMarginBottom />', () => {
+  it('renders a <BodySectionWithMarginBottom /> component', () => {
+		const wrapper = shallow(
+			<BodySectionWithMarginBottom title="test title">
+				<p>test children node</p>
+			</BodySectionWithMarginBottom>
+		);
+		expect(wrapper.find(BodySection).length).toEqual(1);
+		expect(wrapper.find(BodySection).props().title).toEqual('test title');
+		expect(wrapper.find(BodySection).props().children.type).toEqual('p');
+		expect(wrapper.find(BodySection).props().children.props.children).toEqual('test children node');
+	});
+});

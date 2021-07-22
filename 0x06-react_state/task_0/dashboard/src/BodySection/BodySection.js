@@ -1,15 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types'
 
-const BodySection  = ({children, title}) => (
-    <div className="bodySection">
-        <h2>{title}</h2>
-        {children}
-    </div>
-)
-
-BodySection.prototypes = {
-    props: PropTypes.string.isRequired,
-    children: PropTypes.element.isRequired
+const marginLeftStyle = {
+	marginLeft: '2rem'
 }
-export default BodySection;
+
+const BodySection = ({ title, children }) => {
+	return (
+		<div className='bodySection'>
+			<h2 style={marginLeftStyle}>{title}</h2>
+			{children}
+		</div>
+	)
+}
+
+export default BodySection

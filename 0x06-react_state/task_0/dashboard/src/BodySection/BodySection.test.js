@@ -1,24 +1,18 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import BodySectionWithMarginBottom from './BodySectionWithMarginBottom';
 import BodySection from './BodySection';
 
-
-describe("<BodySectionWithMarginBottom />", () => {
-    it('render correctly the child component', () => {
-        const wrapper = shallow(<BodySectionWithMarginBottom title="test">
-            <BodySection />
-            </BodySectionWithMarginBottom>);
-            expect(wrapper.containsMatchingElement(<BodySection/>)).toBeTruthy()
-    })
-    it('Called the child component with the right arguments', () => {
-        const wrapper = shallow(<BodySectionWithMarginBottom title="test">
-            <BodySection />
-            </BodySectionWithMarginBottom>);
-            expect(wrapper.childAt(0).props().title).toBeTruthy();
-            expect(wrapper.childAt(0).props().title).toBe('test');
-    })
-    
-   
-   
-})
+describe('<BodySection />', () => {
+  it('renders a <BodySection /> component', () => {
+		const wrapper = shallow(
+			<BodySection title="test title">
+				<p>test children node</p>
+			</BodySection>
+		);
+		expect(wrapper).toHaveLength(1);
+		expect(wrapper.find('h2').length).toEqual(1);
+		expect(wrapper.find('h2').text()).toEqual('test title');
+		expect(wrapper.find('p').length).toEqual(1);
+		expect(wrapper.find('p').text()).toEqual('test children node');
+	});
+});
