@@ -9,7 +9,6 @@ import { getLatestNotification } from '../utils';
 import { CourseList } from '../CourseList/CourseList';
 import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
 import BodySection from '../BodySection/BodySection';
-import withLogging from '../HOC/WithLogging';
 
 const listCourses = [
     { id: 1, name: 'ES6', credit: 60 },

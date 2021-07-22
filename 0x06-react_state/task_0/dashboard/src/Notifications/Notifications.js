@@ -1,7 +1,6 @@
 import React from 'react';
 import './Notifications.css';
 import closeIcon from '../assets/closeIcon.png';
-import { getLatestNotification } from '../utils';
 import { NotificationItem } from './NotificationItem';
 import PropTypes from 'prop-types'
 import { NotificationItemShape } from '../utils';
@@ -16,7 +15,7 @@ class Notifications extends React.Component {
     shouldComponentUpdate(nextProps, nextState) {
         if (
             nextProps.listNotifications.length > this.props.listNotifications.length ||
-            nextProps.displayDrawer != this.props.displayDrawer
+            nextProps.displayDrawer !== this.props.displayDrawer
         )
             return true;
         return false;
