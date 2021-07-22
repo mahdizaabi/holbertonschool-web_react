@@ -96,6 +96,7 @@ describe('<App />', () => {
         events.keydown({ key: "h", ctrlKey: true });
         expect(window.alert).toHaveBeenCalledWith("Logging you out");
         expect(logout).toHaveBeenCalled();
+        window.alert.mockRestore();
         jest.restoreAllMocks();
     });
     it("Check default state of root component", () => {
@@ -111,4 +112,10 @@ describe('<App />', () => {
         AppInstance.handleHideDrawer();
         expect(wrapper.state("displayDrawer")).toBe(false);
      });
+     it("verifies that after calling handleHideDrawer, the state === false", () => {
+        const wrapper = shallow(<App />);
+        wrapper.setState({ displayDrawer: true });
+        wrapper.instance().handleHideDrawer();
+        expect(wrapper.state().displayDrawer).toBe(false);
+      });
 });
