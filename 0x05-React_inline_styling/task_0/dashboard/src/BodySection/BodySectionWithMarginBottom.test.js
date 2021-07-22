@@ -1,9 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import BodySection from './BodySection';
-import { StyleSheetTestUtils } from 'aphrodite';
 
-StyleSheetTestUtils.suppressStyleInjection();
 
 describe("<BodySection />", () => {
     it('render correctly the props', () => {

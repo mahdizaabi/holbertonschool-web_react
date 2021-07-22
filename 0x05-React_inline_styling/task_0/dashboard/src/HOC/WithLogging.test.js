@@ -10,7 +10,6 @@ describe('<HOC Component />', () => {
 
     it('Console.log works with pure html', () => {
         const HOComponent = withLogging("<b>Test!<b>");
-
         const wrapper = shallow(<HOComponent />);
         expect(consoleLogMock).toHaveBeenCalledWith("Component Component is mounted");
         consoleLogMock.mockClear();
@@ -19,8 +18,6 @@ describe('<HOC Component />', () => {
         consoleLogMock.mockClear();
 
     });
-
-
     it('Console.log works with React Component', () => {
         const HOComponent = withLogging(Footer);
         const wrapper = shallow(<HOComponent />);
@@ -30,6 +27,4 @@ describe('<HOC Component />', () => {
         expect(consoleLogMock).toHaveBeenCalledWith("Component Footer is going to unmount");
         consoleLogMock.mockRestore();
     });
-
-
 });

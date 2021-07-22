@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
 import { LoginComponent } from '../Login/Login';
@@ -9,19 +10,7 @@ import { CourseList } from '../CourseList/CourseList';
 import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
 import BodySection from '../BodySection/BodySection';
 import withLogging from '../HOC/WithLogging';
-import { css, StyleSheet } from "aphrodite";
 
-/***Styles: ***/
-
-const styles = StyleSheet.create({
-    
-    container: {
-        padding: "8px",
-        height: "100vh",
-        display: "flex",
-        flexDirection: "column"
-    }
-});
 const listCourses = [
     { id: 1, name: 'ES6', credit: 60 },
     { id: 2, name: 'Webpack', credit: 20 },
@@ -34,7 +23,8 @@ const NotficationsList = [
     { id: 3, type: "ultraUrgent", html: getLatestNotification() }
 
 ]
-const FooterWithLogging = withLogging(Footer);
+
+const FooterWithLogging  = withLogging(Footer);
 
 class App extends React.Component {
     constructor(props) {
@@ -58,8 +48,9 @@ class App extends React.Component {
     }
 
     render() {
+        console.log(<Footer/>)
         return (
-            <div className={css(styles.container)}>
+            <div className="container">
                 { /****Notifications***/}
                 <Notifications
                     displayDrawer={this.props.isLoggedIn}
@@ -73,18 +64,16 @@ class App extends React.Component {
                 </BodySectionWithMarginBottom>)}
                 { /****News** */}
                 {this.props.isLoggedIn && <BodySection title="News from the School">
-                    <p>Hear the latest news of our School!</p>
+                    <p>Hear the latest from ther owfuk news of our School!</p>
                 </BodySection>}
-
                 { /****Login Component** */}
                 {!this.props.isLoggedIn && (
                     <BodySectionWithMarginBottom title="Log in to continue">
                         <LoginComponent></LoginComponent>
                     </BodySectionWithMarginBottom>)}
-
                 { /****<Footer></Footer>***/}
-                <Footer />
-
+                <FooterWithLogging />
+                
             </div>
         );
     }
@@ -95,7 +84,7 @@ App.prototypes = {
 
 
 App.defaultProps = {
-    isLoggedIn: true,
+    isLoggedIn: false,
     logOut: function () { }
 }
 export default App;
