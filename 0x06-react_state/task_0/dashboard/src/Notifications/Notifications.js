@@ -1,7 +1,6 @@
 import React from 'react';
 import './Notifications.css';
 import closeIcon from '../assets/closeIcon.png';
-import { getLatestNotification } from '../utils';
 import { NotificationItem } from './NotificationItem';
 import PropTypes from 'prop-types'
 import { NotificationItemShape } from '../utils';
@@ -24,10 +23,10 @@ class Notifications extends React.Component {
 
     render() {
         return (<div className="containerx">
-            <div className="menuItem" onClick={() => this.props.handleDisplayDrawer()}>
+            {this.props.displayDrawer && <div className="menuItem" onClick={() => this.props.handleDisplayDrawer()}>
                 Your notifications
             </div>
-
+}
             {(this.props.displayDrawer && this.props.listNotifications.length === 0 && "no new Notifications") || (this.props.displayDrawer && <div className="Notifications" style={{ "paddingBottom": "18px" }}>
 
                 <div style={{ "padding": "18px", "display": "flex", "justifyContent": "space-between" }}>
