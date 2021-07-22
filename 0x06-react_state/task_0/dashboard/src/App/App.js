@@ -85,7 +85,7 @@ class App extends React.Component {
                     </BodySectionWithMarginBottom>)}
 
                 { /****<Footer></Footer>***/}
-                <FooterWithLogging />
+                <Footer />
 
             </div>
         );
