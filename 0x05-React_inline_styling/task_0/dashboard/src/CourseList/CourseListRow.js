@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './CourseList.css'
 
 const CourseListRow = ({ isHeader, textFirstCell, textSecondCell }) => {
-    let rowColor = isHeader ? {"backgroundColor":"#deb5b545"} : {"backgroundColor":"#f5f5f5ab"}
+    let rowColor = isHeader ? {"backgroundColor":"#deb5b545", "width": "600px"} : {"backgroundColor":"#f5f5f5ab","width": "600px"}
     return (
         <tr className="row" style={rowColor}>
             {isHeader && !textSecondCell && <th colSpan = "2">{textFirstCell}</th>}

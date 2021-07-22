@@ -1,16 +1,29 @@
 import React from 'react';
 import { CourseListRow } from './CourseListRow';
-import './CourseList.css'
 import PropTypes from 'prop-types';
+import { css, StyleSheet } from "aphrodite";
 
 import { CourseShape } from '../utils';
+
+const styles = StyleSheet.create({
+
+    CourseList: {
+        margin: "auto",
+        width: "100%",
+        padding: "28px 28px"
+
+    },
+    table: {
+        width: "100%"
+    }
+});
 
 const CourseList = ({listCourses}) => {
     
 
     if (listCourses.length === 0) {
         return (
-            <table id="CourseList">
+            <table className={css(styles.CourseList)} id="CourseList">
                 <thead>
                     <CourseListRow
                         isHeader={true}
@@ -22,7 +35,7 @@ const CourseList = ({listCourses}) => {
     }
 
     return (
-        <table id="CourseList">
+        <table className={css(styles.CourseList)} id="CourseList">
             <thead><CourseListRow
                     isHeader={true}
                     textFirstCell="Available courses"

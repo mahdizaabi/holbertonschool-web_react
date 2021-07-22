@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types'
 
 
- const NotificationItemUnmemo = ({ type, value, html, markAsRead, id }) => {
+ const NotificationItemUnmemo = ({ type, value, html, markAsRead, id, className }) => {
     if (html) {
         return (
             <li
-            type={type}
+            className = {className}
             onClick={()=>markAsRead(id)}
             dangerouslySetInnerHTML={html}>
             </li>
@@ -14,8 +14,10 @@ import PropTypes from 'prop-types'
     }
     return (
         <li
+        className = {className}
+
         onClick={()=>markAsRead(id)}
-        type={type}>
+       >
             {value}
         </li>
     )
