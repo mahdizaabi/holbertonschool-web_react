@@ -23,7 +23,6 @@ const NotficationsList = [
     { id: 3, type: "ultraUrgent", html: getLatestNotification() }
 
 ]
-const FooterWithLogging = withLogging(Footer);
 
 class App extends React.Component {
     constructor(props) {
@@ -33,7 +32,15 @@ class App extends React.Component {
         this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this)
         this.handleHideDrawer = this.handleHideDrawer.bind(this)
     }
+    static propTypes = {
+        isLoggedIn: PropTypes.bool,
+        logOut: PropTypes.func,
+    };
 
+    static defaultProps = {
+        isLoggedIn: false,
+        logOut: () => { },
+    };
     handleDisplayDrawer() {
         this.setState({ displayDrawer: true })
     }
@@ -85,19 +92,11 @@ class App extends React.Component {
                     </BodySectionWithMarginBottom>)}
 
                 { /****<Footer></Footer>***/}
-                <FooterWithLogging />
+                <Footer />
 
             </div>
         );
     }
 }
-App.prototypes = {
-    logOut: PropTypes.func
-}
 
-
-App.defaultProps = {
-    isLoggedIn: false,
-    logOut: function () { }
-}
 export default App;
