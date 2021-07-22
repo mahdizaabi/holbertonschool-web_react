@@ -16,7 +16,7 @@ class Notifications extends React.Component {
     shouldComponentUpdate(nextProps, nextState) {
         if (
             nextProps.listNotifications.length > this.props.listNotifications.length ||
-            nextProps.displayDrawer != this.props.displayDrawer
+            nextProps.displayDrawer !== this.props.displayDrawer
         )
             return true;
         return false;
