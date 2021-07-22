@@ -1,10 +1,9 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import App from './App';
 import { CourseList } from '../CourseList/CourseList'
 import { LoginComponent } from '../Login/Login';
-import { Footer } from '../Footer/Footer';
-import { Notifications } from '../Notifications/Notifications'
+import  Notifications  from '../Notifications/Notifications'
 describe('<App />', () => {
     let wrapper;
     beforeAll(() => {
