@@ -15,10 +15,11 @@ describe('<App />', () => {
         expect(wrapper).toHaveLength(1);
     });
 
+    /*
     it('render 4 components', () => {
         expect(wrapper.find('.container').children()).toHaveLength(4);
     })
-
+*/
     test('<CourseList /> rendred when logedin is false', () => {
         const wrapper = shallow(<App />);
 

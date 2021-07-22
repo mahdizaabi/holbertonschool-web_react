@@ -67,12 +67,12 @@ class App extends React.Component {
         return (
             <div className="container">
                 { /****Notifications***/}
-                <Notifications
+                {this.props.isLoggedIn && <Notifications
                     handleDisplayDrawer={this.handleDisplayDrawer}
                     handleHideDrawer={this.handleHideDrawer}
                     displayDrawer={this.state.displayDrawer}
                     listNotifications={NotficationsList}
-                ></Notifications>
+                ></Notifications>}
                 { /****Header** */}
                 <Header></Header>
                 { /****Body** */}
