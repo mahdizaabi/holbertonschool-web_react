@@ -9,6 +9,23 @@ import { NotificationItemShape } from '../utils';
 
 
 class Notifications extends React.Component {
+    constructor(props) {
+        super(props);
+        this.markAsRead = this.markAsRead.bind(this);
+      }
+      static propTypes = {
+        displayDrawer: PropTypes.bool,
+        listNotifications: PropTypes.arrayOf(NotificationItemShape),
+        handleDisplayDrawer: PropTypes.func,
+        handleHideDrawer: PropTypes.func,
+      };
+    
+      static defaultProps = {
+        displayDrawer: false,
+        listNotifications: [],
+        handleDisplayDrawer: () => {},
+        handleHideDrawer: () => {},
+      };
     markAsRead(id) {
         console.log(`Notification ${id} has been marked as read`)
     }
@@ -23,10 +40,10 @@ class Notifications extends React.Component {
 
     render() {
         return (<div className="containerx">
-            {this.props.displayDrawer && <div className="menuItem" onClick={() => this.props.handleDisplayDrawer()}>
+             <div className="menuItem" onClick={() => this.props.handleDisplayDrawer()}>
                 Your notifications
             </div>
-}
+
             {(this.props.displayDrawer && this.props.listNotifications.length === 0 && "no new Notifications") || (this.props.displayDrawer && <div className="Notifications" style={{ "paddingBottom": "18px" }}>
 
                 <div style={{ "padding": "18px", "display": "flex", "justifyContent": "space-between" }}>
@@ -67,17 +84,6 @@ class Notifications extends React.Component {
         )
     }
 }
-Notifications.propTypes = {
-    displayDrawer: PropTypes.bool,
-    listNotifications: PropTypes.arrayOf(NotificationItemShape),
-    handleDisplayDrawer: PropTypes.func,
-    handleHideDrawer: PropTypes.func
 
-}
-
-Notifications.defaultProps = {
-    displayDrawer: false,
-    listNotifications: []
-};
 
 export { Notifications };
