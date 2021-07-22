@@ -1,6 +1,7 @@
 
 import React from 'react';
 import holbertonLogo from '../assets/holberton.jpg';
+
 import { css, StyleSheet } from "aphrodite";
 
 const styles = StyleSheet.create({
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
 export const Header = () => {
     return (
         <div className={css(styles.container)}>
-            <img className={css(styles.image)} src={holbertonLogo} alt="logo" />
+            <img className={css(styles.image)}  src={holbertonLogo} alt="logo" />
             <h1 className={css(styles.text)}>School dashboard</h1>
         </div>
     )

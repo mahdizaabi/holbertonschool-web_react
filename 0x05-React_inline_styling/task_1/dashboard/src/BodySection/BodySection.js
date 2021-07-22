@@ -8,6 +8,7 @@ const BodySection  = ({children, title}) => (
     </div>
 )
 
+
 BodySection.prototypes = {
     props: PropTypes.string.isRequired,
     children: PropTypes.element.isRequired

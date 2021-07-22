@@ -1,40 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { css, StyleSheet } from "aphrodite";
-
-const styles = StyleSheet.create({
-
-    bodySectionWithMarginontainer: {
-        margiBottom: "40px"
-    }
-});
-const rowTh = StyleSheet.create({
-
-    rowTh: {
-        borderLeft: " 0px solid rgb(221, 221, 221)",
-        textAlign: "center"
-
-    }
-});
-const rowTd = StyleSheet.create({
-
-    rowTd: {
-        textAlign: "left",
-        borderBottom: "2px solid rgb(221, 221, 221)",
-        borderLeft: "2px solid rgb(221, 221, 221)",
-    }
-});
-
-
-
 
 const CourseListRow = ({ isHeader, textFirstCell, textSecondCell }) => {
-    const rowColor = isHeader ? '#deb5b545' : '#f5f5f5ab';
-    const style = { "backgroundColor": `${rowColor}` }
+    let rowColor = isHeader ? {"backgroundColor":"#deb5b545", "width": "600px"} : {"backgroundColor":"#f5f5f5ab","width": "600px"}
     return (
-        <tr className="row" style={style}>{isHeader && !textSecondCell && <th colSpan="2" className={css(rowTh.rowTh)}>{textFirstCell}</th>}
-            {isHeader && textSecondCell && (<><th className={css(rowTd.rowTd)}>{textFirstCell}</th><th className={css(rowTd.rowTd)}>{textSecondCell}</th></>)}
-            {!isHeader && (<> <td className={css(rowTd.rowTd)}>{textFirstCell}</td><td className={css(rowTd.rowTd)}>{textSecondCell}</td> </>)}</tr>
+        <tr className="row" style={rowColor}>
+            {isHeader && !textSecondCell && <th colSpan = "2">{textFirstCell}</th>}
+            {isHeader && textSecondCell && (<><th>{textFirstCell}</th><th>{textSecondCell}</th></>)}
+            {!isHeader && (<> <td>{textFirstCell}</td><td>{textSecondCell}</td> </>)}</tr>
     )
 }
 

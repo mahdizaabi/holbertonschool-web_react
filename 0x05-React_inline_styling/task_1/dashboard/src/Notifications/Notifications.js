@@ -1,9 +1,9 @@
 import React from 'react';
 import closeIcon from '../assets/closeIcon.png';
-import { getLatestNotification } from '../utils';
 import { NotificationItem } from './NotificationItem';
 import PropTypes from 'prop-types'
 import { NotificationItemShape } from '../utils';
+
 import { css, StyleSheet } from "aphrodite";
 
 const styles = StyleSheet.create({
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         marginRight: "12px",
         fontWeight: "800",
         border: "2px dashed #EB0045",
-        marginTop:"24px"
+        marginTop:"18px"
     },
     menuItem: {
         textAlign: " right",
@@ -45,20 +45,18 @@ const ulStyles = StyleSheet.create({
         fontWeight: "600"
     },
     ultraUrgent: {
-        fonSize: "24px",
+        fonSize: "16px",
         color: "rgb(161, 5, 5)",
-        fontWeight: "600",
+        fontWeight: "500",
     }
 })
-
-
 
 class Notifications extends React.Component {
     markAsRead(id) {
         console.log(`Notification ${id} has been marked as read`)
     }
 
-
+  
     render() {
         return (<div className={css(styles.containerx)}>
             <div className={css(styles.menuItem)}>
@@ -68,11 +66,11 @@ class Notifications extends React.Component {
             {(this.props.displayDrawer && this.props.listNotifications.length === 0 && "no new Notifications") || (this.props.displayDrawer && <div className="Notifications" style={{ "paddingBottom": "18px" }}>
 
                 <div style={{ "padding": "18px", "display": "flex", "justifyContent": "space-between" }}>
-                    {this.props.displayDrawer && <p style={{ "fontSize": "22px" }}>
+                    {this.props.displayDrawer && <p style={{ "fontSize": "12px" }}>
                         Here is the lists of notifications
                     </p>}
                     <button
-                        className={css(styles.button)}
+                      className={css(styles.button)}
                         type="submit"
                         aria-label="Close"
                         onClick={() => console.log("Close button has been clicked")}
@@ -85,15 +83,16 @@ class Notifications extends React.Component {
 
                     {this.props.displayDrawer && <ul style={{ "padding": "0 18px" }} className="listNotificationItems">
                         {this.props.listNotifications.map(item => {
-                            const className = item.type === "urgent" ? css(ulStyles.urgent) : item.type === "ultraUrgent" ? css(ulStyles.ultraUrgent) : css(ulStyles.default);
+                const className = item.type === "urgent" ? css(ulStyles.urgent) : item.type === "ultraUrgent" ? css(ulStyles.ultraUrgent) : css(ulStyles.default);
                             return (
                                 <NotificationItem
                                     markAsRead={this.markAsRead}
                                     key={item.id}
                                     id={item.id}
-                                    type={className}
+                                    type={item.type}
                                     value={item.value}
                                     html={item.html || ''}
+                                    className = {className}
                                 />
                             )
                         })}

@@ -14,20 +14,21 @@ const styles = StyleSheet.create({
     text: { paddingBottom: "48px" }
 })
 
+
 export const LoginComponent = () => {
     return (
         <React.Fragment>
-            <div className={css(styles.appBody)}>
-                <p className={css(styles.text)}>Login to access the full dashboard</p>
-                <div className="form">
-                    <form style={{ "display": "flex", "flexDirection": "column", "width": "20%" }}>
-                        <label htmlFor="email">Email</label>
-                        <input type="email" style={{ "flexBasis": "0.2" }} name="email" id="email" />
-                        <label htmlFor="pwdInput">Password</label>
-                        <input type="password" name="pwdInput" id="pwdInput" />
-                        <button type="submit">OK</button>
-                    </form>
-                </div>
+            <div className={css(styles.appBody)}>           
+            <p className={css(styles.text)}>Login to access the full dashboard</p>
+            <div className="form">
+                <form style={{ "display": "flex", "flexDirection": "column", "width": "20%" }}>
+                    <label htmlFor="email">Email</label>
+                    <input type="email" style={{ "flexBasis": "0.2" }} name="email" id="email" />
+                    <label htmlFor="pwdInput">Password</label>
+                    <input type="password" name="pwdInput" id="pwdInput" />
+                    <button type="submit">OK</button>
+                </form>
+            </div>
             </div>
         </React.Fragment>
     )

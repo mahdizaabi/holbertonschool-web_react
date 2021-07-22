@@ -1,12 +1,11 @@
 import React from 'react';
-import BodySection from './BodySection';
-import { css, StyleSheet } from "aphrodite";
-
+import  BodySection  from './BodySection';
 import PropTypes from 'prop-types'
+import { css, StyleSheet } from "aphrodite";
 const styles = StyleSheet.create({
 
     bodySectionWithMarginontainer: {
-        margiBottom: "40px"
+        marginBottom: "40px",
     }
 });
 

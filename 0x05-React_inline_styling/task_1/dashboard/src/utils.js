@@ -18,7 +18,7 @@ export const NotificationItemShape = PropTypes.shape({
 
     id: PropTypes.number.isRequired,
     html:PropTypes.object,
-    type : PropTypes.string.isRequired,
+    type : PropTypes.string,
     value : PropTypes.string
 
 })
