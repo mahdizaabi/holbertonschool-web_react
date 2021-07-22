@@ -3,7 +3,7 @@ import './App.css';
 import { Header } from '../Header/Header';
 import { Footer } from '../Footer/Footer';
 import { LoginComponent } from '../Login/Login';
-import Notifications  from '../Notifications/Notifications';
+import { Notifications } from '../Notifications/Notifications';
 import PropTypes from 'prop-types'
 import { getLatestNotification } from '../utils';
 import { CourseList } from '../CourseList/CourseList';
@@ -85,7 +85,7 @@ class App extends React.Component {
                     </BodySectionWithMarginBottom>)}
 
                 { /****<Footer></Footer>***/}
-                <Footer />
+                <FooterWithLogging />
 
             </div>
         );
