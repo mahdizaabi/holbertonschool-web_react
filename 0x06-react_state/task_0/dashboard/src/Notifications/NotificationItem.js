@@ -3,9 +3,25 @@ import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 
 const NotificationItem = ({ type, html, value, markAsRead }) => {
-	return (
-		<li className={type === 'default' ? css(styles.defaultNotificationStyle, styles.smallNotificationStyle) : css(styles.urgentNotificationStyle, styles.smallNotificationStyle)} data-notification-type={type} dangerouslySetInnerHTML={html} onClick={markAsRead}>{value}</li>
-	)
+	
+		let className= type === 'default' ? css(styles.defaultNotificationStyle, styles.smallNotificationStyle) : css(styles.urgentNotificationStyle, styles.smallNotificationStyle)
+	
+    if (html) {
+        return (
+            <li
+            className={className}
+            onClick={()=>markAsRead()}
+            dangerouslySetInnerHTML={html}>
+            </li>
+        )
+    }
+    return (
+        <li
+        className={type}
+        onClick={()=>markAsRead()}>
+            {value}
+        </li>
+    )
 }
 
 NotificationItem.propTypes = {
