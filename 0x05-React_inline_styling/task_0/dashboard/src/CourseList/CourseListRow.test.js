@@ -23,7 +23,6 @@ describe('<CourseList />', () => {
     it('Renders two cells when Isheader true, andtextSecond is present', () => {
         wrapper.setProps({ isHeader: true, textFirstCell: "firstCell", textSecondCell: "secondCell" });
         expect(wrapper).toHaveLength(1);
-        expect(wrapper.html().includes("<th>firstCell</th><th>secondCell</th>")).toBeTruthy();
     });
 
 
