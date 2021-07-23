@@ -14,7 +14,15 @@ import { user as defaultUser, MyContext } from "./AppContext";
 const marginLeftStyle = {
     marginLeft: '2rem'
 }
+const htmlObj = {
+    __html: getLatestNotification(),
+};
 
+const listNotifications = [
+    { id: 1, type: "default", value: "New course available" },
+    { id: 2, type: "urgent", value: "New resume available" },
+    { id: 3, type: "urgent", html: htmlObj },
+];
 export default class App extends Component {
     constructor(props) {
         super(props);
@@ -22,12 +30,15 @@ export default class App extends Component {
         this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
         this.handleHideDrawer = this.handleHideDrawer.bind(this);
         this.logIn = this.logIn.bind(this)
+        this.markNotificationAsRead = this.markNotificationAsRead.bind(this)
+
         this.state = {
             displayDrawer: false,
             user: defaultUser,
             logOut: () => {
                 this.setState({ user: defaultUser })
-            }
+            },
+            listNotifications
         };
     }
 
@@ -56,26 +67,31 @@ export default class App extends Component {
 
     handleHideDrawer() { this.setState({ displayDrawer: false }); }
 
+    markNotificationAsRead(id) {
+
+        this.setState({
+            listNotifications: this.state.listNotifications.filter(item => item.id !== id)
+        })
+    }
     render() {
         const listCourses = [
             { id: 1, name: "ES6", credit: 60 },
             { id: 2, name: "Webpack", credit: 20 },
             { id: 3, name: "React", credit: 40 },
         ];
-        const htmlObj = {
-            __html: getLatestNotification(),
-        };
-        const listNotifications = [
-            { id: 1, type: "default", value: "New course available" },
-            { id: 2, type: "urgent", value: "New resume available" },
-            { id: 3, type: "urgent", html: htmlObj },
-        ];
+
 
         const { displayDrawer } = this.state;
         return (
-            <MyContext.Provider value={{user: this.state.user, logOut: this.state.logOut}}>
+            <MyContext.Provider value={{ user: this.state.user, logOut: this.state.logOut }}>
                 <div className={css(styles.bodyStyle)}>
-                    <Notifications listNotifications={listNotifications} displayDrawer={displayDrawer} handleDisplayDrawer={this.handleDisplayDrawer} handleHideDrawer={this.handleHideDrawer} />
+                    <Notifications
+                        listNotifications={this.state.listNotifications}
+                        displayDrawer={displayDrawer}
+                        handleDisplayDrawer={this.handleDisplayDrawer}
+                        handleHideDrawer={this.handleHideDrawer}
+                        markNotificationAsRead={this.markNotificationAsRead}
+                    />
                     <div className="App">
                         <Header />
                         <hr className={css(styles.hrStyle)} />

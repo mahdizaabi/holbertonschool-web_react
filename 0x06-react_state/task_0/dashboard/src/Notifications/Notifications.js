@@ -6,10 +6,7 @@ import NotificationItemShape from "./NotificationItemShape";
 import { StyleSheet, css } from "aphrodite";
 
 export default class Notifications extends Component {
-  constructor(props) {
-    super(props);
-    this.markAsRead = this.markAsRead.bind(this);
-  }
+ 
 
   static propTypes = {
     displayDrawer: PropTypes.bool,
@@ -25,16 +22,6 @@ export default class Notifications extends Component {
     handleHideDrawer: () => {},
   };
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if (
-      nextProps.listNotifications.length > this.props.listNotifications.length ||
-      nextProps.displayDrawer !== this.props.displayDrawer
-    )
-      return true;
-    return false;
-  }
-
-  markAsRead(id) { console.log(`Notification ${id} has been marked as read`); }
 
   shouldMenuBeHidden() { return this.props.displayDrawer ? true : false; }
 
@@ -52,7 +39,7 @@ export default class Notifications extends Component {
         {displayDrawer && (
           <div className={css(styles.notificationPanelStyle)}>
             <div className="Notifications">
-              {listNotifications.length > 0 ? (
+              {this.props.listNotifications.length > 0 ? (
                 <>
                   <p style={{ display: "inline" }}>
                     Here is the list of notifications
@@ -72,7 +59,7 @@ export default class Notifications extends Component {
                         value={notification.value}
                         html={notification.html}
                         markAsRead={() => {
-                          this.markAsRead(notification.id);
+                        this.props.markNotificationAsRead(notification.id)
                         }}
                       />
                     ))}

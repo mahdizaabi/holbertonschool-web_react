@@ -76,37 +76,6 @@ describe('<Notifications />', () => {
     expect(wrapper.find('.Notifications p').text()).toEqual('No new notification for now');
   });
 
-  it('verifies console.log output when calling the function markAsRead on an instance of the component', () => {
-    const spy = jest.spyOn(console, 'log');
-    const wrapper = shallow(<Notifications displayDrawer={true} />);
-    const instance = wrapper.instance();
-    instance.markAsRead(1);
-    expect(spy).toHaveBeenCalledWith('Notification 1 has been marked as read');
-  });
-
-  it('verifies that when updating the props of the component with the same list, the component doesn’t rerender', () => {
-    const spy = jest.spyOn(Notifications.prototype, 'shouldComponentUpdate');
-    const wrapper = shallow(<Notifications displayDrawer={true} />);
-    wrapper.setProps({
-      listNotifications: []
-    });
-    expect(spy).toHaveReturnedWith(false);
-    spy.mockRestore();
-  });
-
-  it('verifies that when updating the props of the component with a longer list, the component does rerender', () => {
-    const spy = jest.spyOn(Notifications.prototype, 'shouldComponentUpdate');
-    const wrapper = shallow(<Notifications displayDrawer={true} />);
-    wrapper.setProps({
-      listNotifications: [
-        { id: 1, type: "default", value: "New course available" },
-        { id: 2, type: "urgent", value: "New resume available" },
-        { id: 3, type: "urgent", value: "New majors available" },
-      ]
-    });
-    expect(spy).toHaveReturnedWith(true);
-    spy.mockRestore();
-  });
 
   it('verifies that clicking on the menu item calls handleDisplayDrawer', () => {
     const mockHandleDisplayDrawer = jest.fn();
