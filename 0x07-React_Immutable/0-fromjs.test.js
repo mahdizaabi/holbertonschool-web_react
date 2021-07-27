@@ -1,4 +1,4 @@
-const getImmutableObject = require('./0-fromjs');
+import getImmutableObject from './0-fromjs';
 /* eslint-disable */
 describe('getImmutableObject', () => {
   const ob = { status: true, name: 'test' };
