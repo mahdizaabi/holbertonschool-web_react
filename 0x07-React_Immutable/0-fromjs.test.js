@@ -1,4 +1,4 @@
-const { getImmutableObject } = require('./0-fromjs');
+const getImmutableObject = require('./0-fromjs');
 
 describe('getImmutableObject', () => {
   const ob = { status: true, name: 'test' };
@@ -15,7 +15,6 @@ describe('getImmutableObject', () => {
 
   it('check object values', () => {
     const immutable = getImmutableObject(ob);
-    JSON.stringify(immutable) === JSON.stringify(ob);
     expect(JSON.stringify(immutable) === JSON.stringify(ob)).toBe(true);
   });
 
