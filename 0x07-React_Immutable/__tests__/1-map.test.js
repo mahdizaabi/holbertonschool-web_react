@@ -1,4 +1,4 @@
-import getImmutableObject from './1-map';
+import getImmutableObject from '../1-map';
 /* eslint-disable */
 describe('mutability with Map', () => {
 
