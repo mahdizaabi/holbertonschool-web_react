@@ -1,6 +1,6 @@
-const { Map } = require('immutable');
+import { List, Map } from 'immutable';
 
-export const map = Map({
+const map = Map({
   1: 'Liam',
   2: 'Noah',
   3: 'Elijah',
@@ -8,8 +8,8 @@ export const map = Map({
   5: 'Jacob',
   6: 'Lucas',
 });
-
-export const map2 = map.merge({
-  2: 'Benjamin',
-  4: 'Oliver',
+const map2 = List(map).withMutations((list) => {
+  list.set(2, 'Benjamin').set(4, 'Oliver');
 });
+
+export { map, map2 };
