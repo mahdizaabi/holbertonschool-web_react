@@ -5,8 +5,8 @@ const printBestStudents = (students) => {
     .filter((student) => student.score >= 70)
     .map((filtredStudent) => ({
       ...filtredStudent,
-      firstName: student.firstName[0].toUpperCase() + student.firstName.slice(1),
-      lastName: student.lastName[0].toUpperCase() + student.lastName.slice(1),
+      firstName: filtredStudent.firstName[0].toUpperCase() + filtredStudent.firstName.slice(1),
+      lastName: filtredStudent.lastName[0].toUpperCase() + filtredStudent.lastName.slice(1),
     })).toObject();
 
   console.log(filteredStudents);
