@@ -11,7 +11,9 @@ describe('test get by array of paths', () => {
     });
 
     it('check return value', () => {
-        const expected =Map ({
+        
+        console.log(map2)
+        const expected = Map({
             1: 'Liam',
             2: 'Benjamin',
             3: 'Elijah',
