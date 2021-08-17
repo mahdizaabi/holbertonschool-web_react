@@ -1,0 +1,70 @@
+{
+  "name": "dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@babel/runtime": "^7.14.8",
+    "aphrodite": "^2.4.0",
+    "immutable": "^4.0.0-rc.14",
+    "normalizr": "^3.6.1",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "redux": "^4.1.1",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-react": "^7.14.5",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.2",
+    "babel": "^6.23.0",
+    "babel-jest": "^27.0.6",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-inline-json-import": "^0.3.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "css-loader": "^5.2.6",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "fetch-mock": "^9.11.0",
+    "fetch-mock-jest": "^1.5.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "image-webpack-loader": "^7.0.1",
+    "jest": "^27.0.6",
+    "node-fetch": "^2.6.1",
+    "prop-types": "^15.7.2",
+    "react-loader": "^2.4.7",
+    "redux-mock-store": "^1.5.4",
+    "style-loader": "^3.0.0",
+    "web-vitals": "^2.0.1",
+    "webpack": "^5.41.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "scripts": {
+    "build": "webpack -c ./config/webpack.config.js",
+    "start-dev": "webpack serve --mode development -c ./config/webpack.config.js --open",
+    "start": "webpack serve --mode development -c ./config/webpack.config.js --open",
+    "test": "jest",
+    "test-watch": "jest --watch"
+  },
+  "jest": {
+    "verbose": true,
+    "clearMocks": true,
+    "setupFilesAfterEnv": [
+      "<rootDir>/config/setupTests.js"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
